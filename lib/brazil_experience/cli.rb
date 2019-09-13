@@ -14,29 +14,29 @@ class BrazilExperience::CLI
       puts "Please choose from: 
         attractions or gastronomy".green.bold
         
-        #   input = gets.strip
-        # if input == attractions
-        #   attractions
-        # elsif input == gastronomy
-        #   gastronomy
-        # else
-        #   puts  "I did not understand your choice. Please try again."
-          # main_menu
+          input = gets.strip
+        if input == attractions
+          attractions
+        elsif input == gastronomy
+          gastronomy
+        else
+          puts  "I did not understand your choice. Please try again."
         end
+      main_menu
   end
   
-  # def attractions
-  #     puts "Which attraction would you like to learn more about?".green.bold
-  #       sleep 2 
-  #     puts "Please select a number:"
-  #       sleep 1
-  #   end
+  def attractions
+      puts "Which attraction would you like to learn more about?".green.bold
+        sleep 2 
+      puts "Please select a number:"
+        sleep 1
+    end
   
-  # def gastronomy
-  #   puts "Which item would you like to learn more about?"
-  #     sleep 3
-  #   puts "Please choose by number:".green.bold
-  # end
+  def gastronomy
+    puts "Which item would you like to learn more about?"
+      sleep 3
+    puts "Please choose by number:".green.bold
+  end
   
   
 end
