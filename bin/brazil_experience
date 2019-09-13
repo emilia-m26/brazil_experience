@@ -2,7 +2,7 @@
 
 require_relative "../lib/brazil_experience"
 
-Attractions.new.run
+Attraction.new.run
 Gastronomy.new.run
 
 puts "Setup was successful"

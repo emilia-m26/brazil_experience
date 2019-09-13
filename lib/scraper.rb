@@ -7,13 +7,13 @@ require "pry"
     
     
     #to change attraction - only change first index - second index dicates location of information in content
-    location = doc.css(".content-card-text")[2].text.split("\n")[1]
+    location = doc.css(".content-card-text")[0].text.split("\n")[1]
     #city of first attraction
     
-    name = doc.css(".content-card-text")[2].text.split("\n")[2]
+    name = doc.css(".content-card-text")[0].text.split("\n")[2]
    #name of first attraction
   
-    description = doc.css(".content-card-text")[2].text.split("\n")[3]
+    description = doc.css(".content-card-text")[0].text.split("\n")[3]
      #description of first attraction
  
 
