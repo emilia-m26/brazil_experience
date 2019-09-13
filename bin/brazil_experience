@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
+
 require_relative "../lib/brazil_experience"
 
-Attraction.new.run
-Gastronomy.new.run
 
-puts "Setup was successful"
+
+BrazilExperience::CLI.new.begin_experience
