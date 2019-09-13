@@ -19,21 +19,21 @@ class BrazilExperience::CLI
           attractions
         elsif input == gastronomy
           gastronomy
-        else
+        else input != (attractions || gastronomy)
           puts  "I did not understand your choice. Please try again."
         end
       main_menu
   end
   
   def attractions
-      puts "Which attraction would you like to learn more about?".green.bold
+      puts "Which attraction would you like to learn more about?".yellow.bold
         sleep 2 
-      puts "Please select a number:"
+      puts "Please select a number:".yellow.bold
         sleep 1
     end
   
   def gastronomy
-    puts "Which item would you like to learn more about?"
+    puts "Which item would you like to learn more about?".green.bold
       sleep 3
     puts "Please choose by number:".green.bold
   end
