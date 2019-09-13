@@ -38,6 +38,5 @@ class BrazilExperience::CLI
     puts "Please choose by number:".green.bold
   end
   
-  
 end
 
