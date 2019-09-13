@@ -3,11 +3,12 @@
 class BrazilExperience::CLI 
   
   def begin_experience
-    puts "Welcome to the Brazil Experience!".yellow.bold
+    puts "Welcome to".green.bold + " the Brazil".blue.bold + " Experience!".yellow.bold
       sleep 3
     puts "What would you like to explore?".green.bold
       sleep 2
       main_menu
+      goodbye 
     end
       
   def main_menu
@@ -15,14 +16,14 @@ class BrazilExperience::CLI
         attractions or gastronomy".green.bold
         
           input = gets.strip
-        if input == attractions
+          case input  
+        when input == attractions
           attractions
-        elsif input == gastronomy
-          gastronomy
-        else input != (attractions || gastronomy)
+        when input == gastronomy
+          gatronomy
+        when input != attractions && gastronomy
           puts  "I did not understand your choice. Please try again."
         end
-      main_menu
   end
   
   def attractions
@@ -36,6 +37,10 @@ class BrazilExperience::CLI
     puts "Which item would you like to learn more about?".green.bold
       sleep 3
     puts "Please choose by number:".green.bold
+  end
+  
+  def goodbye
+    puts "Thank you for visiting the Brazil Experience. We hope you enjoyed you stay.".blue.bold
   end
   
 end
