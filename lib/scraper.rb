@@ -18,10 +18,10 @@ require "pry"
  doc_gastronomy = Nokogiri::HTML(open("https://www.atlasobscura.com/unique-food-drink/brazil"))
 
     
-    name = doc.css()
+    name = doc_gastronomy.css(".content-card-text")[-1].text.split("\n")[4]
     #name of food 
     
-    description = doc.css()
+    description = doc_gastronomy.css(".content-card-text")[-1].text.split("\n")[6]
     #short description of food
-
+  
 binding.pry
