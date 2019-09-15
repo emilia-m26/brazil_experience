@@ -12,34 +12,43 @@ class BrazilExperience::CLI
     end
       
   def main_menu
-      input = nil 
+    
       puts "Please choose from: 
           attractions, gastronomy or exit".green.bold
           
-          input = gets.strip.downcase
-          case input  
-            when "attractions"
-              puts "Here are your attractions. Which one would you like to learn more about?".blue.bold
-            when "gastronomy"
-              puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
-            when input != "exit"
-              puts  "I did not understand your choice. Please try again.".green.bold
-            main_menu
-    end
+          answer = gets.strip.downcase
+
+      case answer 
+        when "attractions"
+          attractions
+        when "gastronomy"
+          gastronomy
+        when "exit"
+          sleep 1 
+        else
+          puts "I did not understand your choice. Please try again.".green.bold
+            sleep 2
+        main_menu 
+      end
   end
   
   def attractions
     puts "Here are your attractions. Which one would you like to learn more about?".blue.bold
       sleep 1
-      puts "Please select a number:".blue.bold
-        sleep 1
+    puts "Please select a number:".blue.bold
+      sleep 1
         #list of attractions to choose from by number input
+        @list_attractions = BrazilExperience::Attractions.list_attractions
+
     end
   
   def gastronomy
+    puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
       sleep 1
-      puts "Please choose by number:".yellow.bold
+    puts "Please choose by number:".yellow.bold
+      sleep 1
       #list of food items to choose from by number input
+      @list_gastronomy = BrazilExperience::Gastronomy.list_gastronomy
   end
   
   def goodbye
