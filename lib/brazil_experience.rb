@@ -16,5 +16,5 @@ require "./lib/brazil_experience/version"
 require_relative "./brazil_experience/cli"
 require_relative "./brazil_experience/attractions"
 require_relative "./brazil_experience/gastronomy"
-require_relative "./scraper.rb"
+
 
