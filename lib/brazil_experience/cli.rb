@@ -9,7 +9,8 @@ class BrazilExperience::CLI
       sleep 2
     #main_menu
     #goodbye 
-    attractions
+    ##attractions
+    gastronomy
     end
       
   # def main_menu
@@ -33,30 +34,33 @@ class BrazilExperience::CLI
   #     end
   # end
   
-  def attractions
-    puts "Here are your attractions. Which one would you like to learn more about?".blue.bold
-      sleep 1
-      Scraper.scrape_attractions
-      # binding.pry
-    #puts "Please choose by number:".blue.bold
-    #   sleep 1
-    BrazilExperience::Attractions.all.each_with_index do |attraction,index|
-      puts "#{index + 1}. #{attraction.name}"
-    end
-    #     #list of attractions to choose from by number input
-    #     @list_attractions = BrazilExperience::Attractions.list_attractions
-
-    end
-  
-  # def gastronomy
-  #   puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
+  # def attractions
+  #   puts "Here are your attractions. Which one would you like to learn more about?".blue.bold
   #     sleep 1
-  #     Scraper.scrape_gastronomy
+  #     Scraper.scrape_attractions
+  #   #puts "Please choose by number:".blue.bold
+  #   #   sleep 1
+  #   BrazilExperience::Attractions.all.each_with_index do |attraction,index|
+  #     puts "#{index + 1}. #{attraction.name}"
+  #   end
+  #   #     #list of attractions to choose from by number input
+  #   #     @list_attractions = BrazilExperience::Attractions.list_attractions
+
+  #  end
+  
+   def gastronomy
+    puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
+      sleep 1
+      Scraper.scrape_gastronomy
   #   puts "Please choose by number:".yellow.bold
   #     sleep 1
+  BrazilExperience::Gastronomy.all.each_with_index do |food,index|
+      puts "#{index + 1}. #{food.name}"
+    binding.pry
   #     #list of food items to choose from by number input
   #     @list_gastronomy = BrazilExperience::Gastronomy.list_gastronomy
-  # end
+    end
+  end
   
   # def goodbye
   #   puts "Thank you for visiting the Brazil Experience. We hope you enjoyed you stay.".blue.bold
