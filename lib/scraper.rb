@@ -9,9 +9,9 @@ class Scraper
     
     doc.css(".content-card-text").each_with_index do |name, index|
       
-        attraction_number = index + 1
+         attraction_number = index + 1
        
-         attractions.css(".infocard").each do |attraction|
+         attractions.css(".content-card-text").each do |attraction|
     
     #to change attraction - only change first index - second index dicates location of information in content
      name = attraction.css(".content-card-text")[0].text.split("\n")[2]
