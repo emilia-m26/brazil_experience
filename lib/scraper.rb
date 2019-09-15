@@ -7,21 +7,25 @@ class Scraper
   def self.scrape_attractions
     doc = Nokogiri::HTML(open("https://www.atlasobscura.com/things-to-do/brazil/places"))
     
-    doc.css(".content-card-text").each_with_index do |item, index|
+    doc.css(".content-card-text").each_with_index do |name, index|
+      
+        attraction_number = index + 1
+       
+         attractions.css(".infocard").each do |attraction|
     
     #to change attraction - only change first index - second index dicates location of information in content
-     names = doc.css(".content-card-text")[0].text.split("\n")[2]
+     name = attraction.css(".content-card-text")[0].text.split("\n")[2]
     #name of first attraction
     
-    location = doc.css(".content-card-text")[0].text.split("\n")[1]
+    location = attraction.css(".content-card-text")[0].text.split("\n")[1]
     #city of first attraction
   
-    description = doc.css(".content-card-text")[0].text.split("\n")[3]
+    description = attraction.css(".content-card-text")[0].text.split("\n")[3]
     #description of first attraction
     
-    Attractions.new(name, location, description)
+    BrazilExperience::Attractions.new(name, location, description)
   end
-    
+end
   end
   
   # def self.scrape_gastronomy
@@ -36,4 +40,4 @@ class Scraper
 
 end
   
-binding.pry
+#binding.pry
