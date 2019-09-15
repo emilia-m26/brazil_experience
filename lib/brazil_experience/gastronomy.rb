@@ -5,7 +5,7 @@ class BrazilExperience::Gastronomy
   def self.list_gastronomy
     #should return instances of list of food items to explore
     puts "These are your food choices."
-    
+  end
  
   
   

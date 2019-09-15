@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative "../lib/brazil_experience"
-require_relative "./scraper.rb"
+
 
 BrazilExperience::CLI.new.begin_experience
 
