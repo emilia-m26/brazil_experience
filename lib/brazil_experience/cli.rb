@@ -52,11 +52,14 @@ class BrazilExperience::CLI
     puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
       sleep 1
       Scraper.scrape_gastronomy
-  #   puts "Please choose by number:".yellow.bold
-  #     sleep 1
   BrazilExperience::Gastronomy.all.each_with_index do |food,index|
       puts "#{index + 1}. #{food.name}"
-    #binding.pry
+      puts "Please choose by number:".yellow.bold
+      sleep 1
+        answer = gets.strip.downcase
+        
+        BrazilExperience::Gastronomy.all[answer-1]
+        binding.pry
   #     #list of food items to choose from by number input
   #     @list_gastronomy = BrazilExperience::Gastronomy.list_gastronomy
     end
