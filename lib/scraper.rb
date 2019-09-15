@@ -10,8 +10,9 @@ class Scraper
     
     
     doc.css(".content-card-text").each do |attraction|
-      #location = attraction.css(".detail-sm.place-card-location").text
-      
+      location = attraction.css(".detail-sm.place-card-location").text
+      description = attraction.css(".subtitle-sm").text
+      name= attraction.css(".title-underline").text
        binding.pry
     
     #to change attraction - only change first index - second index dicates location of information in content
