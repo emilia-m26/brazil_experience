@@ -15,26 +15,21 @@ def self.scrape_attractions
       description = attraction.css(".subtitle-sm").text
      
       BrazilExperience::Attractions.new(name,location,description)
-    
-#     BrazilExperience::Attractions.new(name, location, description)
     end
 
   end
   
-  #   def self.scrape_gastronomy
-      
-  #     gastronomy_page = "https://www.atlasobscura.com/unique-food-drink/brazil"
-  #     doc = Nokogiri::HTML(open(gastronomy_page))
+    def self.scrape_gastronomy
+      gastronomy_page = "https://www.atlasobscura.com/unique-food-drink/brazil"
+      doc = Nokogiri::HTML(open(gastronomy_page))
 
-  #     doc.css(".content-card-text").each do |food|
-        
-  #     name= food.css(".title-underline").text
-  #     description = food.css(".content-card-subtitle").text
-  #   #binding.pry 
-     
-  #     Gastronomy.new(name, description)
-  # end
+    doc.css(".content-card-text").each do |food|
+      name= food.css(".title-underline").text
+      description = food.css(".content-card-subtitle").text
+    
+     BrazilExperience::Gastronomy.new(name, description)
+    end
+  end
   
-  # end
  end
   

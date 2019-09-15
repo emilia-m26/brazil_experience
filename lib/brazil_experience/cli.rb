@@ -56,7 +56,7 @@ class BrazilExperience::CLI
   #     sleep 1
   BrazilExperience::Gastronomy.all.each_with_index do |food,index|
       puts "#{index + 1}. #{food.name}"
-    binding.pry
+    #binding.pry
   #     #list of food items to choose from by number input
   #     @list_gastronomy = BrazilExperience::Gastronomy.list_gastronomy
     end
