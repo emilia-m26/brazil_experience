@@ -9,8 +9,8 @@ class BrazilExperience::CLI
       sleep 2
     #main_menu
     #goodbye 
-    ##attractions
-    gastronomy
+    attractions
+    ##gastronomy
     end
       
   # def main_menu
@@ -34,19 +34,27 @@ class BrazilExperience::CLI
   #     end
   # end
   
-  # def attractions
-  #   puts "Here are your attractions. Which one would you like to learn more about?".blue.bold
-  #     sleep 1
-  #     Scraper.scrape_attractions
-  #   #puts "Please choose by number:".blue.bold
-  #   #   sleep 1
-  #   BrazilExperience::Attractions.all.each_with_index do |attraction,index|
-  #     puts "#{index + 1}. #{attraction.name}"
-  #   end
-  #   #     #list of attractions to choose from by number input
-  #   #     @list_attractions = BrazilExperience::Attractions.list_attractions
+  def attractions
+    puts "Here are your attractions. Which one would you like to learn more about?".blue.bold
+      sleep 1
+      Scraper.scrape_attractions
+    #puts "Please choose by number:".blue.bold
+    #   sleep 1
+    BrazilExperience::Attractions.all.each_with_index do |attraction,index|
+      puts "#{index + 1}. #{attraction.name}"
+    end
+     sleep 1
+    puts "Please choose by number:".yellow.bold
+        answer = gets.strip.downcase
+        
+        attraction_item = BrazilExperience::Attractions.all[answer.to_i-1]
+        puts "#{attraction_item.name} is located in #{attraction_item.location}."
+        
+        puts attraction_item.description
+    #     #list of attractions to choose from by number input
+    #     @list_attractions = BrazilExperience::Attractions.list_attractions
 
-  #  end
+    end
   
    def gastronomy
     puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
