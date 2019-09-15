@@ -58,7 +58,7 @@ class BrazilExperience::CLI
       sleep 1
         answer = gets.strip.downcase
         
-        BrazilExperience::Gastronomy.all[answer-1]
+        food_item = BrazilExperience::Gastronomy.all[answer.to_i-1]
         binding.pry
   #     #list of food items to choose from by number input
   #     @list_gastronomy = BrazilExperience::Gastronomy.list_gastronomy
