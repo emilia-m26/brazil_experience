@@ -7,54 +7,55 @@ class BrazilExperience::CLI
       sleep 3
     puts "What would you like to explore?".green.bold
       sleep 2
-      main_menu
-      goodbye 
+      # main_menu
+      # goodbye 
+      attractions
     end
       
-  def main_menu
+  # def main_menu
     
-      puts "Please choose from: 
-          attractions, gastronomy or exit".green.bold
+  #     puts "Please choose from: 
+  #         attractions, gastronomy or exit".green.bold
           
-          answer = gets.strip.downcase
+  #         answer = gets.strip.downcase
 
-      case answer 
-        when "attractions"
-          attractions
-        when "gastronomy"
-          gastronomy
-        when "exit"
-          sleep 1 
-        else
-          puts "I did not understand your choice. Please try again.".green.bold
-            sleep 2
-        main_menu 
-      end
-  end
+  #     case answer 
+  #       when "attractions"
+  #         attractions
+  #       when "gastronomy"
+  #         gastronomy
+  #       when "exit"
+  #         sleep 1 
+  #       else
+  #         puts "I did not understand your choice. Please try again.".green.bold
+  #           sleep 2
+  #       main_menu 
+  #     end
+  # end
   
   def attractions
     puts "Here are your attractions. Which one would you like to learn more about?".blue.bold
       sleep 1
       Scraper.scrape_attractions
-    puts "Please select a number:".blue.bold
-      sleep 1
-        #list of attractions to choose from by number input
-        @list_attractions = BrazilExperience::Attractions.list_attractions
+    # puts "Please select a number:".blue.bold
+    #   sleep 1
+    #     #list of attractions to choose from by number input
+    #     @list_attractions = BrazilExperience::Attractions.list_attractions
 
     end
   
-  def gastronomy
-    puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
-      sleep 1
-      Scraper.scrape_attractions
-    puts "Please choose by number:".yellow.bold
-      sleep 1
-      #list of food items to choose from by number input
-      @list_gastronomy = BrazilExperience::Gastronomy.list_gastronomy
-  end
+  # def gastronomy
+  #   puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
+  #     sleep 1
+  #     Scraper.scrape_attractions
+  #   puts "Please choose by number:".yellow.bold
+  #     sleep 1
+  #     #list of food items to choose from by number input
+  #     @list_gastronomy = BrazilExperience::Gastronomy.list_gastronomy
+  # end
   
-  def goodbye
-    puts "Thank you for visiting the Brazil Experience. We hope you enjoyed you stay.".blue.bold
-  end
+  # def goodbye
+  #   puts "Thank you for visiting the Brazil Experience. We hope you enjoyed you stay.".blue.bold
+  # end
   
 end

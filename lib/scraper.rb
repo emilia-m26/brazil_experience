@@ -2,12 +2,16 @@ require "open-uri"
 require "nokogiri"
 require "pry"
 
-# class Scraper
+class Scraper
   
-#   def self.scrape_attractions
-    url = "https://www.atlasobscura.com/things-to-do/brazil/places"
-    doc = Nokogiri::HTML(open(url))
+ def self.scrape_attractions
+    attractions_page = "https://www.atlasobscura.com/things-to-do/brazil/places"
+    doc = Nokogiri::HTML(open(attractions_page))
     
+    
+    doc.css(".content-card-text").each do |attraction|
+      
+       binding.pry
     
     #to change attraction - only change first index - second index dicates location of information in content
      name = doc.css(".content-card-text")[0].text.split("\n")[2]
@@ -21,8 +25,8 @@ require "pry"
     
 #     BrazilExperience::Attractions.new(name, location, description)
 
-binding.pry
-#   end
+
+  end
   
 #   def self.scrape_gastronomy
 #     url = "https://www.atlasobscura.com/unique-food-drink/brazil"
@@ -35,5 +39,5 @@ binding.pry
 #     #short description of food
 #   end
 
-# end
+ end
   
