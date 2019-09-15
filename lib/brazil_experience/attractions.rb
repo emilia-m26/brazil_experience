@@ -10,9 +10,9 @@ class BrazilExperience::Attractions
     attraction_1.location = "Rio de Janeiro, Brazil"
     attraction_1.description = "Short Description of Attraction"
     
-    attraction_1.url = "https://www.atlasobscura.com/places/largo-do-boticario"
+    #attraction_1.url = "https://www.atlasobscura.com/places/largo-do-boticario"
     
-    [attraction_1...attraction_16]
+    [attraction_1]
   end
   
   

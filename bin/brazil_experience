@@ -3,3 +3,4 @@
 require_relative "../lib/brazil_experience"
 
 BrazilExperience::CLI.new.begin_experience
+
