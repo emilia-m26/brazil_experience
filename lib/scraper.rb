@@ -10,6 +10,7 @@ class Scraper
     
     
     doc.css(".content-card-text").each do |attraction|
+      #location = attraction.css(".detail-sm.place-card-location").text
       
        binding.pry
     
@@ -24,7 +25,7 @@ class Scraper
     #description of first attraction
     
 #     BrazilExperience::Attractions.new(name, location, description)
-
+    end
 
   end
   
