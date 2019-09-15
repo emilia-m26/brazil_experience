@@ -35,6 +35,7 @@ class BrazilExperience::CLI
   def attractions
     puts "Here are your attractions. Which one would you like to learn more about?".blue.bold
       sleep 1
+      Scraper.scrape_attractions
     puts "Please select a number:".blue.bold
       sleep 1
         #list of attractions to choose from by number input
@@ -45,6 +46,7 @@ class BrazilExperience::CLI
   def gastronomy
     puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
       sleep 1
+      Scraper.scrape_attractions
     puts "Please choose by number:".yellow.bold
       sleep 1
       #list of food items to choose from by number input
