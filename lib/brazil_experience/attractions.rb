@@ -19,6 +19,7 @@ class BrazilExperience::Attractions
   
   def self.list_attractions
     #should return instances of list of attractions to explore
+    Scraper.scrape_attractions
     puts "These are your attraction choices."
     
   end
