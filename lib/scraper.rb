@@ -10,20 +10,11 @@ class Scraper
     
     
     doc.css(".content-card-text").each do |attraction|
+       name= attraction.css(".title-underline").text
       location = attraction.css(".detail-sm.place-card-location").text
       description = attraction.css(".subtitle-sm").text
-      name= attraction.css(".title-underline").text
-       binding.pry
-    
-    #to change attraction - only change first index - second index dicates location of information in content
-     name = doc.css(".content-card-text")[0].text.split("\n")[2]
-    #name of first attraction
-    
-    location = doc.css(".content-card-text")[0].text.split("\n")[1]
-    #city of first attraction
-  
-    description = doc.css(".content-card-text")[0].text.split("\n")[3]
-    #description of first attraction
+     
+      Attractions.new(name,location,description)
     
 #     BrazilExperience::Attractions.new(name, location, description)
     end
