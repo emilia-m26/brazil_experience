@@ -26,10 +26,14 @@ class Scraper
       gastronomy_page = "https://www.atlasobscura.com/unique-food-drink/brazil"
       doc = Nokogiri::HTML(open(gastronomy_page))
     
+    binding.pry 
     
       doc.css(".content-card-text").each do |food|
-       name= food.css(".title-underline").text
-       description = food.css(".subtitle-sm").text
+        
+        
+      name= food.css(".title-underline").text
+      binding.pry 
+      # description = food.css(".subtitle-sm").text
      
       Gastronomy.new(name,location,description)
 #     name = doc_gastronomy.css(".content-card-text")[0].text.split("\n")[4]
@@ -37,7 +41,7 @@ class Scraper
     
 #     description = doc_gastronomy.css(".content-card-text")[0].text.split("\n")[6]
 #     #short description of food
-#   end
+  end
   
   end
  end
