@@ -1,4 +1,5 @@
 class BrazilExperience::Gastronomy
+  attr_accessor :name, :description
   
   
   def self.list_gastronomy
@@ -10,6 +11,8 @@ class BrazilExperience::Gastronomy
     gastronomy_1.description = "Short Description of Food"
     
     gastronomy_1.url = "https://www.atlasobscura.com/foods/ice-cream-bean"
+    
+    [gastronomy_1...gastronomy_16]
   end
   
   

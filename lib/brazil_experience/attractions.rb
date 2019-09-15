@@ -1,4 +1,5 @@
 class BrazilExperience::Attractions
+  attr_accessor :name, :location, :description
   
   def self.list_attractions
     #should return instances of list of attractions to explore
@@ -11,6 +12,7 @@ class BrazilExperience::Attractions
     
     attraction_1.url = "https://www.atlasobscura.com/places/largo-do-boticario"
     
+    [attraction_1...attraction_16]
   end
   
   
