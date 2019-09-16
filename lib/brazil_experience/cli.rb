@@ -3,30 +3,30 @@
 class BrazilExperience::CLI 
   
   def begin_experience
+    Scraper.scrape_attractions
+    Scraper.scrape_gastronomy
     puts "Welcome to".green.bold + " the Brazil".blue.bold + " Experience!".yellow.bold
       sleep 3
-    puts "What would you like to explore?"
-      sleep 2
     main_menu
-    goodbye 
+    #goodbye 
     end
       
   def main_menu
-    
-      puts "Please choose from: 
+    puts "What would you like to explore?"
+      sleep 2
+    puts "Please choose from: 
           attractions, gastronomy or exit"
           
           answer = gets.strip.downcase
 
       case answer 
         when "attractions"
-          Scraper.scrape_attractions
           attractions
         when "gastronomy"
-          Scraper.scrape_gastronomy
           gastronomy
         when "exit"
           sleep 1 
+          goodbye
         else
           puts "I did not understand your choice. Please try again."
             sleep 2
@@ -35,12 +35,12 @@ class BrazilExperience::CLI
   end
   
   def attractions
-    puts "Here are your attractions. Which one would you like to learn more about?"
+    puts "These are the attractions available to explore. Which one would you like to learn more about?"
       sleep 1
    
-    BrazilExperience::Attractions.all.each_with_index do |attraction,index|
-      puts "#{index + 1}. #{attraction.name}"
-    end
+    # BrazilExperience::Attractions.all.each_with_index do |attraction,index|
+    #   puts "#{index + 1}. #{attraction.name}"
+    # end
      sleep 1
     puts "Please choose by number, main menu or exit:"
         answer = gets.strip.downcase

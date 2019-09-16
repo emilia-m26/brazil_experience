@@ -19,8 +19,9 @@ class BrazilExperience::Attractions
   
   def self.list_attractions
     #should return instances of list of attractions to explore
-    #self.list_attractions =
-    
+    self.list_attractions = BrazilExperience::Attractions.all.each_with_index do |attraction,index|
+      puts "#{index + 1}. #{attraction.name}"
+    end
   end
   
   
