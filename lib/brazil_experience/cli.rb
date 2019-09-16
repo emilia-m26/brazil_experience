@@ -76,31 +76,24 @@ class BrazilExperience::CLI
     puts "#{index + 1}. #{food.name}"
   end
      sleep 1
-    puts "Please choose by number:".yellow.bold
-        answer = gets.strip.downcase
-        food_item = BrazilExperience::Gastronomy.all[answer.to_i-1]
-        
-        puts "What is a(n) #{food_item.name}?"
+    puts "Please choose by number:"
+       
+       answer = gets.strip.downcase
+      case answer
+        when "main menu"
+          main_menu
+        when  "exit"
+          goodbye
+        when
+          food_item = BrazilExperience::Gastronomy.all[answer.to_i-1]
+            puts "What is a(n) #{food_item.name}?"
             puts food_item.description
             sleep 3 
             gastronomy
-        
-        
-        # case answer
-        #   when "main menu"
-        #     main_menu
-        #   when  "exit"
-        #     goodbye
-        #   unless 0
-        #     puts "What is a(n) #{food_item.name}?"
-        #     puts food_item.description
-        #     sleep 3 
-        #     gastronomy
-        #   else
-        #     puts "I did not understand your selection.  Please try again."
-        #     gastronomy
-        #   end
-        # end
+        else
+            puts "I did not understand your selection.  Please try again."
+            gastronomy
+        end
         
   #     #list of food items to choose from by number input
   #     @list_gastronomy = BrazilExperience::Gastronomy.list_gastronomy
