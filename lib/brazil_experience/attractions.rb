@@ -19,7 +19,7 @@ class BrazilExperience::Attractions
   
   def self.list_attractions
     #should return instances of list of attractions to explore
-    puts "These are your attraction choices."
+    #self.list_attractions =
     
   end
   

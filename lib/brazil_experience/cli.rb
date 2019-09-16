@@ -20,8 +20,10 @@ class BrazilExperience::CLI
 
       case answer 
         when "attractions"
+          Scraper.scrape_attractions
           attractions
         when "gastronomy"
+          Scraper.scrape_gastronomy
           gastronomy
         when "exit"
           sleep 1 
@@ -35,21 +37,30 @@ class BrazilExperience::CLI
   def attractions
     puts "Here are your attractions. Which one would you like to learn more about?"
       sleep 1
-    Scraper.scrape_attractions
    
     BrazilExperience::Attractions.all.each_with_index do |attraction,index|
       puts "#{index + 1}. #{attraction.name}"
     end
      sleep 1
-    puts "Please choose by number:"
+    puts "Please choose by number or exit:"
         answer = gets.strip.downcase
+        case answer
+        when answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
+          puts "I did not understand your selection.  Please try again."
+          attractions
+        when "exit"
+          sleep 1
+        else 
+          attraction_item = BrazilExperience::Attractions.all[answer.to_i-1]
         
-        attraction_item = BrazilExperience::Attractions.all[answer.to_i-1]
+        puts "*~* #{attraction_item.name} is located in #{attraction_item.location} *~*"
+              puts  attraction_item.description
+        sleep 4
         
-        puts "#{attraction_item.name} is located in #{attraction_item.location}."
+        attractions
+        end
         
-        puts attraction_item.description
-        sleep 2
+        
         
     #     #list of attractions to choose from by number input
     #     @list_attractions = BrazilExperience::Attractions.list_attractions
@@ -59,7 +70,6 @@ class BrazilExperience::CLI
    def gastronomy
     puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
       sleep 1
-      Scraper.scrape_gastronomy
   BrazilExperience::Gastronomy.all.each_with_index do |food,index|
     puts "#{index + 1}. #{food.name}"
   end
@@ -68,7 +78,7 @@ class BrazilExperience::CLI
         answer = gets.strip.downcase
         if answer.to_i > BrazilExperience::Gastronomy.all.size || answer.to_i <= 0
           puts "I did not understand your selection.  Please try again."
-          main_menu 
+          gastronomy
         end
   
         food_item = BrazilExperience::Gastronomy.all[answer.to_i-1]
