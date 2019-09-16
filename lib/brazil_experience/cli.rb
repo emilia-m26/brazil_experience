@@ -48,20 +48,13 @@ class BrazilExperience::CLI
             if answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
                puts "I did not understand your selection. Please try again."
                 attractions
-              else 
-                case answer
-                  when "main menu"
-                    main_menu
-                  when "exit"
-                    goodbye
-                  else
-                     attraction = BrazilExperience::Attractions.all[answer.to_i-1]
+            end
+              attraction = BrazilExperience::Attractions.all[answer.to_i-1]
                 puts "*~* #{attraction.name} is located in #{attraction.location} *~*"
                 puts  attraction.description
                 sleep 4
                 attractions
-              end
-            end
+             
                   
     #     #list of attractions to choose from by number input
     #     @list_attractions = BrazilExperience::Attractions.list_attractions
@@ -78,25 +71,19 @@ end
         answer = gets.strip.downcase
         food_item = BrazilExperience::Gastronomy.all[answer.to_i-1]
     
-      case answer
-        when "main menu"
-          main_menu
-        when "exit"
-          goodbye
-        when
-          food_item = BrazilExperience::Gastronomy.all[answer.to_i-1]
+        if answer.to_i > BrazilExperience::Gastronomy.all.size || answer.to_i <= 0
+           puts "I did not understand your selection. Please try again."
+            gastronomy
+          end
             puts "What is a(n) #{food_item.name}?"
             puts food_item.description
             sleep 3 
             gastronomy
-        else
-            puts "I did not understand your selection.  Please try again."
-            gastronomy
-        end
         
   #     #list of food items to choose from by number input
   #     @list_gastronomy = BrazilExperience::Gastronomy.list_gastronomy
     end
+    
   
   def goodbye
     puts "Thank you for visiting the Brazil Experience. We hope you enjoyed you stay.".blue.bold
