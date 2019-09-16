@@ -44,20 +44,31 @@ class BrazilExperience::CLI
         
     puts "Please choose a number, main menu or exit:"
         answer = gets.chomp
-        
-            if answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
-               puts "I did not understand your selection. Please try again."
-                attractions
-            end
-              attraction = BrazilExperience::Attractions.all[answer.to_i-1]
+        attraction = BrazilExperience::Attractions.all[answer.to_i-1]
+            # if answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
+            #   puts "I did not understand your selection. Please try again."
+            #     attractions
+            # end
+            #   attraction = BrazilExperience::Attractions.all[answer.to_i-1]
+            #     puts "*~* #{attraction.name} is located in #{attraction.location} *~*"
+            #     puts  attraction.description
+            #     sleep 4
+            #     attractions
+              
+              if answer.to_i > 0 && answer.to_i <=16
                 puts "*~* #{attraction.name} is located in #{attraction.location} *~*"
                 puts  attraction.description
                 sleep 4
                 attractions
+              elsif answer == "main menu"
+                main_menu 
+              elsif answer == "exit"
+              else
+                puts "I did not understand your selection. Please try again."
+                attractions
+              end
+          
              
-                  
-    #     #list of attractions to choose from by number input
-    #     @list_attractions = BrazilExperience::Attractions.list_attractions
 end
   
    def gastronomy
