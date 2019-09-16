@@ -1,5 +1,6 @@
 class BrazilExperience::Attractions
   attr_accessor :name, :location, :description
+  
     @@all=[]
   
   def initialize(name, location, description)
@@ -17,12 +18,13 @@ class BrazilExperience::Attractions
     @@all
   end
   
-  def self.list_attractions
-    #should return instances of list of attractions to explore
-    self.list_attractions = BrazilExperience::Attractions.all.each_with_index do |attraction,index|
-      puts "#{index + 1}. #{attraction.name}"
-    end
-  end
+  # def self.list_attractions(attractions)
+  #   #should return instances of list of attractions to explore
+  #   self.list_attractions = self.all.each_with_index do |attraction,index|
+  #     puts "#{index + 1}. #{attraction.name}"
+  #   end
+  # end
+  
   
   
 end

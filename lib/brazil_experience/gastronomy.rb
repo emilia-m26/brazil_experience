@@ -17,10 +17,10 @@ class BrazilExperience::Gastronomy
     @@all
   end
   
-  def self.list_gastronomy
-    #should return instances of list of food items to explore
-    puts "These are your food choices."
-  end
+  # def self.list_gastronomy
+  #   #should return instances of list of food items to explore
+  #   puts "These are your food choices."
+  # end
  
   
   

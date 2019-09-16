@@ -18,7 +18,6 @@ class BrazilExperience::CLI
           attractions, gastronomy or exit"
           
           answer = gets.strip.downcase
-
       case answer 
         when "attractions"
           attractions
@@ -37,36 +36,32 @@ class BrazilExperience::CLI
   def attractions
     puts "These are the attractions available to explore. Which one would you like to learn more about?"
       sleep 1
-   
-    # BrazilExperience::Attractions.all.each_with_index do |attraction,index|
-    #   puts "#{index + 1}. #{attraction.name}"
-    # end
-     sleep 1
+      BrazilExperience::Attractions.all.each_with_index do |attraction,index|
+        puts "#{index + 1}. #{attraction.name}"
+      end
+        sleep 1
+        
     puts "Please choose by number, main menu or exit:"
         answer = gets.strip.downcase
+        attraction_number = BrazilExperience::Attractions.all[answer.to_i-1]
+    
         case answer
-          when 
-            attraction_item = BrazilExperience::Attractions.all[answer.to_i-1]
+          when "attraction_number"
               sleep 2
-            puts "*~* #{attraction_item.name} is located in #{attraction_item.location} *~*"
-            puts  attraction_item.description
+            puts "*~* #{attraction_number.name} is located in #{attraction_number.location} *~*"
+            puts  attraction_number.description
               sleep 4
-            attractions
-          when answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
-            puts "I did not understand your selection.  Please try again."
-              sleep 2
             attractions
           when "main menu"
             main_menu
           when "exit"
             sleep 1
+            goodbye
           else 
             puts "I did not understand your selection.  Please try again."
             sleep 2
           attractions
         end
-        
-        
         
     #     #list of attractions to choose from by number input
     #     @list_attractions = BrazilExperience::Attractions.list_attractions
