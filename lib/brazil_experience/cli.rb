@@ -44,23 +44,25 @@ class BrazilExperience::CLI
         
     puts "Please choose a number, main menu or exit:"
         answer = gets.chomp
-        if answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
+        
+            if answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
                puts "I did not understand your selection. Please try again."
                 attractions
-        elsif
-          case answer 
-            when "main menu"
-                main_menu
-            when "exit"
-              goodbye
-            else
-                attraction = BrazilExperience::Attractions.all[answer.to_i-1]
+              else 
+                case answer
+                  when "main menu"
+                    main_menu
+                  when "exit"
+                    goodbye
+                  else
+                     attraction = BrazilExperience::Attractions.all[answer.to_i-1]
                 puts "*~* #{attraction.name} is located in #{attraction.location} *~*"
                 puts  attraction.description
                 sleep 4
-                  attractions
+                attractions
+              end
             end
-          end
+                  
     #     #list of attractions to choose from by number input
     #     @list_attractions = BrazilExperience::Attractions.list_attractions
 end
