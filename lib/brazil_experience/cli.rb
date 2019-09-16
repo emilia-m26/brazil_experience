@@ -42,12 +42,14 @@ class BrazilExperience::CLI
       puts "#{index + 1}. #{attraction.name}"
     end
      sleep 1
-    puts "Please choose by number or exit:"
+    puts "Please choose by number, main menu or exit:"
         answer = gets.strip.downcase
         case answer
         when answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
           puts "I did not understand your selection.  Please try again."
           attractions
+        when "main menu"
+          main_menu
         when "exit"
           sleep 1
         else 
