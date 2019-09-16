@@ -45,21 +45,25 @@ class BrazilExperience::CLI
     puts "Please choose by number, main menu or exit:"
         answer = gets.strip.downcase
         case answer
-        when answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
-          puts "I did not understand your selection.  Please try again."
+          when 
+            attraction_item = BrazilExperience::Attractions.all[answer.to_i-1]
+              sleep 2
+            puts "*~* #{attraction_item.name} is located in #{attraction_item.location} *~*"
+            puts  attraction_item.description
+              sleep 4
+            attractions
+          when answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
+            puts "I did not understand your selection.  Please try again."
+              sleep 2
+            attractions
+          when "main menu"
+            main_menu
+          when "exit"
+            sleep 1
+          else 
+            puts "I did not understand your selection.  Please try again."
+            sleep 2
           attractions
-        when "main menu"
-          main_menu
-        when "exit"
-          sleep 1
-        else 
-          attraction_item = BrazilExperience::Attractions.all[answer.to_i-1]
-        sleep 2
-        puts "#{attraction_item.name} is located in #{attraction_item.location}"
-              puts  attraction_item.description
-        sleep 4
-        
-        attractions
         end
         
         
