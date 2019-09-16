@@ -8,6 +8,7 @@ class BrazilExperience::CLI
     puts "Welcome to".green.bold + " the Brazil".blue.bold + " Experience!".yellow.bold
       sleep 3
     main_menu
+    goodbye 
     end
       
   def main_menu
@@ -42,32 +43,27 @@ class BrazilExperience::CLI
         sleep 1
         
     puts "Please choose a number, main menu or exit:"
-        answer = gets.strip.downcase
-        attraction_number = BrazilExperience::Attractions.all[answer.to_i-1]
-    
-        #case answer
-          if answer == attraction_number
-            puts "*~* #{attraction_number.name} is located in #{attraction_number.location} *~*"
-            puts  attraction_number.description
-            binding.pry
-              sleep 4
-            attractions
-          elsif answer == "main menu"
-            main_menu
-          elseif answer == "exit"
-            sleep 1
-            goodbye
-          else 
-            puts "I did not understand your selection.  Please try again."
-            sleep 2
-          attractions
-        end
-        
-        
+        answer = gets.chomp
+        if answer.to_i > BrazilExperience::Attractions.all.size || answer.to_i <= 0
+               puts "I did not understand your selection. Please try again."
+                attractions
+        elsif
+          case answer 
+            when "main menu"
+                main_menu
+            when "exit"
+              goodbye
+            else
+                attraction = BrazilExperience::Attractions.all[answer.to_i-1]
+                puts "*~* #{attraction.name} is located in #{attraction.location} *~*"
+                puts  attraction.description
+                sleep 4
+                  attractions
+            end
+          end
     #     #list of attractions to choose from by number input
     #     @list_attractions = BrazilExperience::Attractions.list_attractions
-
-    end
+end
   
    def gastronomy
     puts "Here are your food choices. Which would you like to learn more about?".yellow.bold
@@ -77,12 +73,13 @@ class BrazilExperience::CLI
   end
      sleep 1
     puts "Please choose by number:"
-       
-       answer = gets.strip.downcase
+        answer = gets.strip.downcase
+        food_item = BrazilExperience::Gastronomy.all[answer.to_i-1]
+    
       case answer
         when "main menu"
           main_menu
-        when  "exit"
+        when "exit"
           goodbye
         when
           food_item = BrazilExperience::Gastronomy.all[answer.to_i-1]
