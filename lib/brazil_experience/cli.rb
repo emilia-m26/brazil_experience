@@ -52,8 +52,8 @@ class BrazilExperience::CLI
           sleep 1
         else 
           attraction_item = BrazilExperience::Attractions.all[answer.to_i-1]
-        
-        puts "*~* #{attraction_item.name} is located in #{attraction_item.location} *~*"
+        sleep 2
+        puts "#{attraction_item.name} is located in #{attraction_item.location}"
               puts  attraction_item.description
         sleep 4
         
