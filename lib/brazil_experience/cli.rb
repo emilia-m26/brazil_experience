@@ -5,6 +5,7 @@ class BrazilExperience::CLI
   def begin_experience
     Scraper.scrape_attractions
     Scraper.scrape_gastronomy
+    
     puts "Welcome to".green.bold + " the Brazil".blue.bold + " Experience!".yellow.bold
       sleep 3
     main_menu
@@ -35,7 +36,7 @@ class BrazilExperience::CLI
   def attractions
     puts "These are the attractions available. Which one would you like to learn more about?"
       sleep 1
-      #lists attractions
+      
       BrazilExperience::Attractions.all.each_with_index do |attraction,index|
         puts "#{index + 1}. #{attraction.name}"
       end
@@ -53,53 +54,49 @@ class BrazilExperience::CLI
               elsif answer == "main menu"
                 main_menu 
               elsif answer == "exit"
+                sleep 1
+                goodbye 
               else
                 puts "I did not understand your selection. Please try again."
+                  sleep 2
                 attractions
               end
              
 end
   
    def gastronomy
-    puts "Here are your food choices. Which would you like to learn more about?"
+      puts "Here are your food choices. Which would you like to learn more about?"
       sleep 1
-  BrazilExperience::Gastronomy.all.each_with_index do |food,index|
-    puts "#{index + 1}. #{food.name}"
-  end
-     sleep 1
-    puts "Please choose a number, main menu, or exit:"
-        answer = gets.strip.downcase
+          BrazilExperience::Gastronomy.all.each_with_index do |food,index|
+            puts "#{index + 1}. #{food.name}"
+          end
+        sleep 1
+        
+      puts "Please choose a number, main menu, or exit:"
+        answer = gets.chomp
         food_item = BrazilExperience::Gastronomy.all[answer.to_i-1]
                 
             if answer.to_i > 0 && answer.to_i <=16
-              puts "*~* #{food_item.name} is located in #{food_item.location} *~*"
+              puts "*~* #{food_item.name} *~*"
                 puts  food_item.description
                 sleep 4
                 gastronomy
               elsif answer == "main menu"
                 main_menu 
               elsif answer == "exit"
+                sleep 1
                 goodbye
               else
                 puts "I did not understand your selection. Please try again."
+                sleep 2
                 gastronomy
               end
-    
-    
-        # if answer.to_i > BrazilExperience::Gastronomy.all.size || answer.to_i <= 0
-        #   puts "I did not understand your selection. Please try again."
-        #     gastronomy
-        #   end
-        #     puts "What is a(n) #{food_item.name}?"
-        #     puts food_item.description
-        #     sleep 3 
-        #     gastronomy
         
  end
     
   
   def goodbye
-    puts "Thank you for visiting the Brazil Experience. We hope you enjoyed you stay.".blue.bold
+    puts "*~* Thank you for visiting the Brazil Experience. We hope you enjoyed you stay! *~*".blue.bold
   end
   
 end
