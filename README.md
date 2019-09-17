@@ -1,8 +1,7 @@
 # BrazilExperience
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/brazil_experience`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the ruby gem BrazilExperience!  This gem is to give information on attractions to visit
+and foods to experiment while in the lovely counrty of Brazil.
 
 ## Installation
 
