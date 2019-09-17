@@ -21,7 +21,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Usage of this gem is for the sole purposes of entertainment and learning more of what
+traveling to Brazil has to offer in attractions and gastronomy.
 
 ## Development
 
@@ -31,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'peaceful-principle-9663'/brazil_experience. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/emilia-m26/brazil_experience. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
