@@ -3,7 +3,7 @@
 class BrazilExperience::CLI 
   
   def begin_experience
-    Scraper.scrape_attractions
+    BrazilExperience::Attractions.load
     Scraper.scrape_gastronomy
     
     puts "Welcome to".green.bold + " the Brazil".blue.bold + " Experience!".yellow.bold

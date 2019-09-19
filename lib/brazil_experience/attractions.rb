@@ -10,6 +10,12 @@ class BrazilExperience::Attractions
     save  
   end
   
+  def self.load 
+    Scraper.scrape_attractions.each do |hash|
+      self.new(hash[:name], hash[:location],hash[:description])
+    end
+  end
+  
   def save
     @@all << self
   end

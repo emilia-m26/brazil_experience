@@ -9,12 +9,12 @@ def self.scrape_attractions
     doc = Nokogiri::HTML(open(attractions_page))
     
     
-    doc.css(".content-card-text").each do |attraction|
-      name= attraction.css(".title-underline").text
-      location = attraction.css(".detail-sm.place-card-location").text
-      description = attraction.css(".subtitle-sm").text
+    doc.css(".content-card-text").map do |attraction|
+      {:name => attraction.css(".title-underline").text,
+      :location => attraction.css(".detail-sm.place-card-location").text,
+      :description => attraction.css(".subtitle-sm").text}
      
-      BrazilExperience::Attractions.new(name,location,description)
+      #BrazilExperience::Attractions.new(name,location,description)
     end
 
   end
