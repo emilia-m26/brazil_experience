@@ -24,13 +24,4 @@ class BrazilExperience::Attractions
     @@all
   end
   
-  # def self.list_attractions(attractions)
-  #   #should return instances of list of attractions to explore
-  #   self.list_attractions = self.all.each_with_index do |attraction,index|
-  #     puts "#{index + 1}. #{attraction.name}"
-  #   end
-  # end
-  
-  
-  
 end

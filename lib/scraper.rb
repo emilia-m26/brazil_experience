@@ -13,10 +13,7 @@ def self.scrape_attractions
       {:name => attraction.css(".title-underline").text,
       :location => attraction.css(".detail-sm.place-card-location").text,
       :description => attraction.css(".subtitle-sm").text}
-     
-      #BrazilExperience::Attractions.new(name,location,description)
     end
-
   end
   
     def self.scrape_gastronomy
@@ -26,8 +23,6 @@ def self.scrape_attractions
     doc.css(".content-card-text").map do |food|
       {:name => food.css(".title-underline").text,
       :description => food.css(".content-card-subtitle").text}
-    
-     #BrazilExperience::Gastronomy.new(name, description)
     end
   end
   
