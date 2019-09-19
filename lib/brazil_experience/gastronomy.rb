@@ -9,6 +9,12 @@ class BrazilExperience::Gastronomy
     save  
   end
   
+  def self.load
+    Scraper.scrape_gastronomy.each do |hash|
+      self.new(hash[:name], hash[:description])
+    end
+  end
+  
   def save
     @@all << self
   end

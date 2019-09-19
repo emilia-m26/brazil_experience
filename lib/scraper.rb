@@ -23,11 +23,11 @@ def self.scrape_attractions
       gastronomy_page = "https://www.atlasobscura.com/unique-food-drink/brazil"
       doc = Nokogiri::HTML(open(gastronomy_page))
 
-    doc.css(".content-card-text").each do |food|
-      name= food.css(".title-underline").text
-      description = food.css(".content-card-subtitle").text
+    doc.css(".content-card-text").map do |food|
+      {:name => food.css(".title-underline").text,
+      :description => food.css(".content-card-subtitle").text}
     
-     BrazilExperience::Gastronomy.new(name, description)
+     #BrazilExperience::Gastronomy.new(name, description)
     end
   end
   
