@@ -1,7 +1,7 @@
 class BrazilExperience::Attractions
   attr_accessor :name, :location, :description
   
-    @@all=[]
+  @@all=[]
   
   def initialize(name, location, description)
     @name = name
