@@ -9,11 +9,13 @@ def self.scrape_attractions
     doc = Nokogiri::HTML(open(attractions_page))
     
     doc.css(".Card__content-wrap").map do |attraction|
-      {:name => attraction.css(".Card__heading").text,
-      #binding.pry
+      {:name => attraction.css(".Card__heading").text.delete("\n"),
+
+      
+
       :location => attraction.css(".Card__hat").text,
-      :description => attraction.css(".Card__content").text}
-    
+      :description => attraction.css(".Card__content.js-subtitle-content").text.delete("\n")}
+      #binding.pry
     # doc.css(".content-card-text").map do |attraction|
     #  {:name => attraction.css(".title-underline").text,
     #  :location => attraction.css(".detail-sm.place-card-location").text,
@@ -26,8 +28,8 @@ def self.scrape_attractions
       doc = Nokogiri::HTML(open(gastronomy_page))
 
       doc.css(".Card__content-wrap").map do |food|
-        {:name => food.css(".Card__heading").text,
-        :description => food.css(".Card__content").text}
+        {:name => food.css(".Card__heading").text.delete("\n"),
+        :description => food.css(".Card__content").text.delete("\n")}
       
    # doc.css(".content-card-text").map do |food|
     #  {:name => food.css(".title-underline").text,
