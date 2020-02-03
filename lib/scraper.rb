@@ -10,12 +10,11 @@ def self.scrape_attractions
     
     doc.css(".Card__content-wrap").map do |attraction|
       {:name => attraction.css(".Card__heading").text.delete("\n"),
-
-      
-
       :location => attraction.css(".Card__hat").text,
       :description => attraction.css(".Card__content.js-subtitle-content").text.delete("\n")}
-      #binding.pry
+    #binding.pry
+    
+  #below is sraping originally functional
     # doc.css(".content-card-text").map do |attraction|
     #  {:name => attraction.css(".title-underline").text,
     #  :location => attraction.css(".detail-sm.place-card-location").text,
@@ -30,7 +29,8 @@ def self.scrape_attractions
       doc.css(".Card__content-wrap").map do |food|
         {:name => food.css(".Card__heading").text.delete("\n"),
         :description => food.css(".Card__content").text.delete("\n")}
-      
+
+  #below is sraping originally functional
    # doc.css(".content-card-text").map do |food|
     #  {:name => food.css(".title-underline").text,
      # :description => food.css(".content-card-subtitle").text}
