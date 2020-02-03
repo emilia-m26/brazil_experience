@@ -8,11 +8,16 @@ def self.scrape_attractions
     attractions_page = "https://www.atlasobscura.com/things-to-do/brazil/places"
     doc = Nokogiri::HTML(open(attractions_page))
     
+    doc.css(".Card__content-wrap").map do |attraction|
+      {:name => attraction.css(".Card__heading").text,
+      #binding.pry
+      :location => attraction.css(".Card__hat").text,
+      :description => attraction.css(".Card__content").text}
     
-    doc.css(".content-card-text").map do |attraction|
-      {:name => attraction.css(".title-underline").text,
-      :location => attraction.css(".detail-sm.place-card-location").text,
-      :description => attraction.css(".subtitle-sm").text}
+    # doc.css(".content-card-text").map do |attraction|
+    #  {:name => attraction.css(".title-underline").text,
+    #  :location => attraction.css(".detail-sm.place-card-location").text,
+    #  :description => attraction.css(".subtitle-sm").text}
     end
   end
   
@@ -20,9 +25,13 @@ def self.scrape_attractions
       gastronomy_page = "https://www.atlasobscura.com/unique-food-drink/brazil"
       doc = Nokogiri::HTML(open(gastronomy_page))
 
-    doc.css(".content-card-text").map do |food|
-      {:name => food.css(".title-underline").text,
-      :description => food.css(".content-card-subtitle").text}
+      doc.css(".Card__content-wrap").map do |food|
+        {:name => food.css(".Card__heading").text,
+        :description => food.css(".Card__content").text}
+      
+   # doc.css(".content-card-text").map do |food|
+    #  {:name => food.css(".title-underline").text,
+     # :description => food.css(".content-card-subtitle").text}
     end
   end
   
