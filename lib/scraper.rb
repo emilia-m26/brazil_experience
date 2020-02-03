@@ -9,9 +9,9 @@ def self.scrape_attractions
     doc = Nokogiri::HTML(open(attractions_page))
     
     doc.css(".Card__content-wrap").map do |attraction|
-      {:name => attraction.css(".Card__heading").text.delete("\n"),
+      {:name => attraction.css(".Card__heading").text.strip,
       :location => attraction.css(".Card__hat").text,
-      :description => attraction.css(".Card__content.js-subtitle-content").text.delete("\n")}
+      :description => attraction.css(".Card__content.js-subtitle-content").text.strip}
     #binding.pry
     
   #below is sraping originally functional
@@ -27,8 +27,8 @@ def self.scrape_attractions
       doc = Nokogiri::HTML(open(gastronomy_page))
 
       doc.css(".Card__content-wrap").map do |food|
-        {:name => food.css(".Card__heading").text.delete("\n"),
-        :description => food.css(".Card__content").text.delete("\n")}
+        {:name => food.css(".Card__heading").text.strip,
+        :description => food.css(".Card__content").text.strip}
 
   #below is sraping originally functional
    # doc.css(".content-card-text").map do |food|
