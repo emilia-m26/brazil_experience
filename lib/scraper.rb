@@ -11,7 +11,7 @@ def self.scrape_attractions
     doc.css(".Card__content-wrap").map do |attraction|
       {:name => attraction.css(".Card__heading").text.strip,
       :location => attraction.css(".Card__hat").text,
-      :description => attraction.css(".Card__content.js-subtitle-content").text.strip}
+      :description => attraction.css(".Card__content").text.strip}
     #binding.pry
     
   #below is sraping originally functional
