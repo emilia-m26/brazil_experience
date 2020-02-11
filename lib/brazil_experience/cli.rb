@@ -96,7 +96,7 @@ class BrazilExperience::CLI
     
   
   def goodbye
-    puts "*~Thank you for visiting the Brazil Experience. We hope you enjoyed you stay!~*".blue.bold
+    puts "*~Thank you for visiting the Brazil Experience. We hope you enjoyed your stay!~*".blue.bold
   end
   
 end
